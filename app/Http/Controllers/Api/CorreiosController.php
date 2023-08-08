@@ -42,7 +42,7 @@ class CorreiosController extends Controller
                 $brNode = $li->filterXPath('//br')->first();
                 $descricao = trim($brNode->getNode(0)->nextSibling->textContent);
 
-                $data['historico'][] = [
+                $data[] = [
                     'atualizacao' => $atualizacao->text(),
                     'status' => $status->text(),
                     'descricao' => $descricao
