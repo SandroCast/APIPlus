@@ -22,12 +22,16 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/v1/rastro', [CorreiosController::class, 'rastreio']);
 
-Route::middleware('auth:sanctum')->group(function(){
+Route::post('/v1/pagamento/confirma-pix', [FreeApi::class, 'confirmaPix']);
 
+Route::post('/acesso/gerar-token', [FreeApi::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function(){
     //aqui oq for necessario login
 
+    Route::get('/v1/pagamento/consulta-pix', [FreeApi::class, 'consultaPix']);
+    
 });
 
 Route::post('/salvar', [FreeApi::class, 'salvar']);
 Route::get('/teste', [FreeApi::class, 'index']);
-Route::post('/login', [FreeApi::class, 'login']);

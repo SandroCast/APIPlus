@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Pix;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,9 +18,14 @@ class FreeApi extends Controller
         dd('ok');
     }
 
-    public function salvar(Request $request)
+    public function consultaPix(Request $request)
     {
-        // return response()->json(Product::create($request->all()), 201);
+        return response()->json(Pix::where('pedido', $request->pedido)->where('pix', $request->pix)->exists(), 201);
+    }
+
+    public function confirmaPix(Request $request)
+    {
+        Pix::create($request->all());
     }
 
     public function login(Request $request)
