@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CorreiosController;
+use App\Http\Controllers\Api\FreeApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
