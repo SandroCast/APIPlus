@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('pixs', function (Blueprint $table) {
             $table->id();
             $table->integer('pedido');
-            $table->string('pix');
             $table->timestamps();
         });
     }
