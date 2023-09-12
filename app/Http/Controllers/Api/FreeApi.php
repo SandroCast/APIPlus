@@ -20,7 +20,7 @@ class FreeApi extends Controller
 
     public function consultaPix(Request $request)
     {
-        return response()->json(Pix::where('pedido', $request->pedido)->where('pix', $request->pix)->exists(), 201);
+        return response()->json(Pix::where('pedido', $request->pedido)->first(), 201);
     }
 
     public function confirmaPix(Request $request)
